@@ -1,0 +1,181 @@
+1. x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    l=[[i,j,k] for i in range(x+1)
+               for j in range(y+1)
+               for k in range(z+1)
+               if i+j+k!=n]
+    print(l)
+
+2.n = int(input())
+    arr = list(map(int,input().strip().split()))[:n]
+    z=max(arr)
+    while max(arr) == z:
+        arr.remove(max(arr))
+    print (max(arr))
+
+3.students=[]
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        students.append([name, score])
+
+    students = sorted(students, key = lambda x: x[1])
+    second_lowest_score = sorted(list(set([x[1] for x in students])))[1]
+    desired_students = []
+    for stu in students:
+        if stu[1] == second_lowest_score:
+            desired_students.append(stu[0])
+    print("\n".join(sorted(desired_students)))
+
+4. n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    a=sum(student_marks[query_name])/len(student_marks[query_name])
+    print("{:.2f}".format(a))
+5.N = int(input())
+    x = [];
+    for i in range(0,N):
+        p = input().split();
+        if p[0] == "print":
+            print(x)
+        elif p[0] == "insert":
+            x.insert(int(p[1]),int(p[2]))
+        elif p[0] == "remove":
+            x.remove(int(p[1]))
+        elif p[0] == "pop":
+            x.pop();
+        elif p[0] == "append":
+            x.append(int(p[1]))
+        elif p[0] == "sort":
+            x.sort();
+        else:
+            x.reverse();
+6.
+n = int(input())
+    integer_list = map(int, input().split())
+    t=tuple(integer_list)
+    print(hash(t))
+7.
+def average(array):
+    a=set(array)
+    return sum(a)/len(a)
+8.
+n, m = (int(i) for i in input().split())
+l = map(int, input().strip().split(' '))
+a = set(map(int, input().strip().split(' ')))
+b = set(map(int, input().strip().split(' ')))
+result = 0
+for i in l:
+    if i in a:
+        result += 1
+    if i in b:
+        result += -1
+print(result)
+
+9.
+n1= int(input())
+a1 = set(map(int,input().split()))
+n2 = int(input())
+a2 = set(map(int,input().split()))
+x =a1.difference(a2)
+y=a2.difference(a1)
+z=x.union(y)
+for i in sorted(list(z)):
+        print(i)
+10.
+x=int(input())
+country=set()
+for i in range(x):
+    country.add(input())
+print(len(country))
+11.
+n = int(input())
+s = set(map(int, input().split()))
+num = int(input())
+for i in range(num):
+    ip = input().split()
+    if ip[0]=="remove":
+        s.remove(int(ip[1]))
+    elif ip[0]=="discard":
+        s.discard(int(ip[1]))
+    else :
+        s.pop()
+print(sum(list(s)))
+12.
+a=int(input())
+set1=set(map(int, input().split()))
+b=int(input())
+set2=set(map(int,input().split()))
+c=set1.union(set2)
+print(len(c))     
+13.
+a=int(input())
+set1=set(map(int,input().split()))
+b=int(input())
+set2=set(map(int,input().split()))
+c=set1.intersection(set2)
+print(len(c))
+14.
+a=int(input())
+set1=set(map(int,input().split()))
+b=int(input())
+set2=set(map(int,input().split()))
+c=set1.difference(set2)
+print(len(c))
+15.
+a=int(input())
+set1=set(map(int,input().split()))
+b=int(input())
+set2=set(map(int,input().split()))
+c=set1.symmetric_difference(set2)
+print(len(c))
+16.
+a=int(input())
+set1=set(map(int,input().split()))
+b=int(input())
+for i in range(b):
+    (x, y)=input().split()
+    set2=set(map(int,input().split()))
+    if x=='intersection_update':
+        set1.intersection_update(set2)
+    elif x=='update':
+        set1.update(set2)
+    elif x=='symmetric_difference_update':
+        set1.symmetric_difference_update(set2)
+    elif x=='difference_update':
+        set1.difference_update(set2)
+print (sum(set1))
+17.
+n=int(input())
+a=map(int,input().split(" "))
+a=sorted(a)
+for i in range(1,len(a)):
+    if i!=len(a)-1:
+        if a[i]!=a[i-1] and a[i]!=a[i+1]:
+            print(a[i])
+            break
+    else:
+        print(a[i])
+18.
+x=int(input())
+for i in range(x):
+    a=input()
+    set1=set(map(int,input().split()))
+    b=input()
+    set2=set(map(int,input().split()))
+    print(set1.issubset(set2))
+19.
+set1 = set(map(int, input().split()))
+for i in range(int(input())):
+    set2 = set(map(int, input().split()))
+    if set1.issuperset(set2) != True or len(set1) == len(set2): 
+        print(False)
+        break 
+else: 
+    print(True)
